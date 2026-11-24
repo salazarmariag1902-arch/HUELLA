@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUELLA | Tu historia, tus decisiones</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-world="cover">
+
+  <div class="sky">
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="aurora aurora-three"></div>
+    <div class="planet planet-one"></div>
+    <div class="planet planet-two"></div>
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="orbit orbit-three"></div>
+    <div id="stars"></div>
+    <div id="shootingStars"></div>
+  </div>
+
+  <div id="cursorGlow"></div>
+
+  <header>
+    <div class="brand">HUELLA <span>✧</span></div>
+    <div id="chapterLabel">UNA EXPERIENCIA INTERACTIVA</div>
+    <button id="soundButton" class="icon-button">♫</button>
+  </header>
+
+  <main>
+
+    <!-- PORTADA -->
+
+    <section id="cover" class="scene active">
+
+      <div class="cover-content">
+
+        <div class="ornament">✧ ───── ✦ ───── ✧</div>
+
+        <div class="eyebrow">TU HISTORIA COMIENZA AQUÍ</div>
+
+        <div class="title-container">
+          <span class="title-star star-left">✦</span>
+          <h1 class="main-title">HUELLA</h1>
+          <span class="title-star star-right">✧</span>
+        </div>
+
+        <div class="title-line"></div>
+
+        <p class="cover-phrase">
+          Cada decisión deja una marca.
+          <br>
+          <em>Todas juntas construyen quién eres.</em>
+        </p>
+
+        <button class="magic-button" id="startButton">
+          Descubre tu historia <span>✦</span>
+        </button>
+
+      </div>
+
+      <div class="cover-footer">
+        AUTONOMÍA <span>✧</span>
+        IDENTIDAD <span>✧</span>
+        CONSECUENCIAS
+      </div>
+
+    </section>
+
+    <!-- NOMBRE -->
+
+    <section id="identity" class="scene">
+
+      <div class="center-content">
+
+        <div class="ornament">✧ ── ✦ ── ✧</div>
+        <div class="eyebrow">TODA HISTORIA TIENE UN PROTAGONISTA</div>
+
+        <h2 class="editorial-title">
+          Esta vez,
+          <br>
+          <em>eres tú.</em>
+        </h2>
+
+        <p>Antes de comenzar nuestro viaje, ¿cómo te llamas?</p>
+
+        <form id="nameForm">
+
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="Tu nombre o apodo"
+            maxlength="24"
+            autocomplete="off"
+            required
+          >
+
+          <button class="magic-button" type="submit">
+            Comenzar mi historia ✦
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- PRESENTACIÓN DEL PROBLEMA -->
+
+    <section id="prologue" class="scene">
+
+      <div class="center-content">
+
+        <div class="eyebrow" id="prologueLabel"></div>
+
+        <div id="prologueArt" class="prologue-art"></div>
+
+        <div id="prologueContent"></div>
+
+        <div id="prologueDots" class="dots"></div>
+
+        <button id="prologueNext" class="magic-button">
+          Continuar →
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- CONSTELACIÓN -->
+
+    <section id="universe" class="scene">
+
+      <div class="universe-heading">
+
+        <div class="eyebrow">EL UNIVERSO DE TUS DECISIONES</div>
+
+        <h2>Una historia escrita en <em>estrellas.</em></h2>
+
+        <p id="universeGreeting"></p>
+
+      </div>
+
+      <div class="constellation">
+
+        <svg viewBox="0 0 1000 500"
+             preserveAspectRatio="none"
+             class="constellation-lines">
+
+          <path id="line0" d="M130 300 Q160 100 320 115"/>
+          <path id="line1" d="M320 115 Q470 10 610 180"/>
+          <path id="line2" d="M610 180 Q900 170 780 350"/>
+          <path id="line3" d="M780 350 Q650 480 460 385"/>
+          <path id="line4" d="M460 385 Q230 500 150 440"/>
+
+        </svg>
+
+        <button class="star-node" data-stage="0"
+                style="--x:13%;--y:60%;--color:#ffdd9c">
+
+          <span class="star-icon">✦</span>
+          <strong>ORIGEN</strong>
+          <small>Las voces que nos forman</small>
+
+        </button>
+
+        <button class="star-node" data-stage="1"
+                style="--x:32%;--y:23%;--color:#ffb6d9">
+
+          <span class="star-icon">✧</span>
+          <strong>ELECCIÓN</strong>
+          <small>El instante de decidir</small>
+
+        </button>
+
+        <button class="star-node" data-stage="2"
+                style="--x:61%;--y:36%;--color:#a2f5ff">
+
+          <span class="star-icon">✷</span>
+          <strong>ECO</strong>
+          <small>Las consecuencias</small>
+
+        </button>
+
+        <button class="star-node" data-stage="3"
+                style="--x:78%;--y:70%;--color:#e3b8ff">
+
+          <span class="star-icon">✦</span>
+          <strong>REFLEJO</strong>
+          <small>Quién estás siendo</small>
+
+        </button>
+
+        <button class="star-node" data-stage="4"
+                style="--x:46%;--y:77%;--color:#b6ffdc">
+
+          <span class="star-icon">✧</span>
+          <strong>REPARA</strong>
+          <small>Todavía puedes elegir</small>
+
+        </button>
+
+        <button class="star-node" data-stage="5"
+                style="--x:15%;--y:88%;--color:#fff3ae">
+
+          <span class="star-icon">✺</span>
+          <strong>LEGADO</strong>
+          <small>Tu huella</small>
+
+        </button>
+
+      </div>
+
+      <div class="universe-bottom">
+
+        <div id="progressText"></div>
+
+        <div class="progress-track">
+          <div id="progressFill"></div>
+        </div>
+
+        <button id="journeyButton" class="magic-button">
+          Continuar mi historia →
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- HISTORIA -->
+
+    <section id="story" class="scene">
+
+      <div class="story-layout">
+
+        <div class="story-top">
+
+          <button id="universeButton" class="small-button">
+            ← Constelación
+          </button>
+
+          <span id="storyCounter"></span>
+
+        </div>
+
+        <div id="storyContent"></div>
+
+        <div class="story-bottom">
+
+          <div id="storyDots" class="dots"></div>
+
+          <button id="storyNext" class="magic-button">
+            Continuar →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- HUELLA FINAL -->
+
+    <section id="final" class="scene">
+
+      <div class="final-layout">
+
+        <div class="eyebrow">TODAS TUS DECISIONES. UNA SOLA HISTORIA.</div>
+
+        <h2 id="finalTitle" class="editorial-title"></h2>
+
+        <svg id="fingerprint" viewBox="0 0 400 400"></svg>
+
+        <p class="final-message">
+          No eres solamente tus aciertos ni tus errores.
+          Eres también lo que eliges hacer,
+          las consecuencias que asumes
+          y lo que aprendes de ellas.
+        </p>
+
+        <button id="legacyButton" class="magic-button">
+          Mi última decisión ✦
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- COMPROMISO -->
+
+    <section id="legacy" class="scene">
+
+      <div class="center-content">
+
+        <div class="ornament">✧ ─── ✦ ─── ✧</div>
+
+        <h2 class="editorial-title">
+          Tu historia aún
+          <br>
+          <em>no está terminada.</em>
+        </h2>
+
+        <p>
+          Cada decisión contribuye a formar tu identidad.
+          ¿Qué huella quieres dejar a partir de hoy?
+        </p>
+
+        <textarea id="commitment"
+          maxlength="280"
+          placeholder="A partir de hoy, quiero..."></textarea>
+
+        <button id="finishButton" class="magic-button">
+          Sellar mi huella ✦
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- CIERRE -->
+
+    <section id="ending" class="scene">
+
+      <div class="center-content">
+
+        <div class="ornament">✧ ───── ✦ ───── ✧</div>
+
+        <div class="eyebrow">TU IDENTIDAD SIGUE EN CONSTRUCCIÓN</div>
+
+        <h2 class="editorial-title">
+          Cada decisión
+          <br>
+          deja una <em>huella.</em>
+        </h2>
+
+        <p>Todas juntas cuentan quién estás llegando a ser.</p>
+
+        <blockquote id="finalCommitment"></blockquote>
+
+        <button id="downloadButton" class="magic-button">
+          Guardar mi huella ↓
+        </button>
+
+        <button id="restartButton" class="small-button">
+          Volver a comenzar
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
